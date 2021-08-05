@@ -16,7 +16,6 @@
             "polyfills": "apps/chris-personal-website/src/polyfills.ts",
             "tsConfig": "apps/chris-personal-website/tsconfig.app.json",
             "assets": [
-              "apps/chris-personal-website/src/favicon.ico",
               "apps/chris-personal-website/src/assets"
             ],
             "styles": [],
