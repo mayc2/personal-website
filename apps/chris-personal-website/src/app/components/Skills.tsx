@@ -17,6 +17,7 @@ export const Skills = () => {
         <SkillsWrapper>
           <Reactjs a11yTitle="Reactjs" color="plain" size="large" />
           <p>Typescript</p>
+          <p>React</p>
         </SkillsWrapper>
       </Section>
     </section>
