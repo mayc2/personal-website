@@ -25,11 +25,11 @@ jobs:
       - name: install
         run: yarn install
       - name: lint
-        run: yarn affected:lint-- --base=origin/master
+        run: yarn affected:lint -- --base=origin/master
       - name: build
-        run: yarn affected:build-- --base=origin/master
+        run: yarn affected:build -- --base=origin/master
       - name: test
-        run: yarn affected:test-- --base=origin/master
+        run: yarn affected:test -- --base=origin/master
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
