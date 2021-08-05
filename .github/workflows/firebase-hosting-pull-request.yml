@@ -12,6 +12,8 @@ jobs:
         node-version: [12.x, 14.x, 16.x]
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -21,11 +23,11 @@ jobs:
       - name: install
         run: yarn install
       - name: lint
-        run: yarn affected:lint
+        run: yarn affected:lint -- --base=origin/master
       - name: build
-        run: yarn affected:build
+        run: yarn affected:build -- --base=origin/master
       - name: test
-        run: yarn affected:test
+        run: yarn affected:test -- --base=origin/master
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

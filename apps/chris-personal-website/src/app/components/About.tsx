@@ -20,7 +20,7 @@ const AboutWrapper = styled.div`
 export const About = () => {
   return (
     <Section className="about" direction="row">
-      <Heading primary={true}>A Little about myself...</Heading>
+      <Heading primary={true}>A little about myself...</Heading>
       <AboutWrapper>
         <p>
           <br />
