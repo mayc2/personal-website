@@ -7,11 +7,25 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
     steps:
       - uses: actions/checkout@v2
-      - run: >-
-          yarn install && yarn affected:lint && yarn affected:build && yarn
-          affected:test
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: fetch
+        run: git fetch origin main
+      - name: install
+        run: yarn install
+      - name: lint
+        run: yarn affected:lint
+      - name: build
+        run: yarn affected:build
+      - name: test
+        run: yarn affected:test
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
