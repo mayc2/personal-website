@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: fetch
-        run: git fetch origin main
+        run: git fetch origin master
       - name: install
         run: yarn install
       - name: lint
