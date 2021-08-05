@@ -16,6 +16,7 @@ export const Skills = () => {
         <Heading primary={true}>Skills</Heading>
         <SkillsWrapper>
           <Reactjs a11yTitle="Reactjs" color="plain" size="large" />
+          <p>Typescript</p>
         </SkillsWrapper>
       </Section>
     </section>
