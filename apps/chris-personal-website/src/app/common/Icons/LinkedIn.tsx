@@ -17,5 +17,5 @@ const LinkedinWrapper = styled(Linkedin)`
 `;
 
 export const LinkedIn = () => {
-  return <LinkedinWrapper a11yTitle="LinkedIn" color={PRIMARY_LINKEDIN_COLOR}/>;
+  return <LinkedinWrapper a11yTitle="LinkedIn" color="plain"/>;
 };
