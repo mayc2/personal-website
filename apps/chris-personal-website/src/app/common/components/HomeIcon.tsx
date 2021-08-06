@@ -15,13 +15,13 @@ const HomeWrapper = styled(Home)`
 export const HomeIcon = () => { 
     return (
         <Link to="/">
-        <HomeWrapper
-          onClick={animateScroll.scrollToTop}
-          cursor="pointer"
-          a11yTitle="Home"
-          color={EMPHASIS_FONT_COLOR}
-          size="large"
-        />
+          <HomeWrapper
+            onClick={animateScroll.scrollToTop}
+            cursor="pointer"
+            a11yTitle="Home"
+            color={EMPHASIS_FONT_COLOR}
+            size="large"
+          />
       </Link>
     );
 };

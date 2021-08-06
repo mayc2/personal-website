@@ -8,17 +8,24 @@ import { PersonalProjects } from './components/PersonalProjects';
 import { Contact } from './components/Contact';
 import { About } from './components/About';
 import { Resume } from './components/Resume';
+import { MobileMenu } from './components/MobileMenu';
+import { useState } from 'react';
 
 // type Align = 'start' | 'center' | 'end' | 'baseline' | 'stretch';
 
 export function App() {
-  // Event Listeners
+  const [isOpen, setisOpen] = useState(false);
+
+  const toggle = () => {
+    setisOpen(!isOpen);
+  };
 
   return (
     <Router>
       <Switch>
         <Route path="/" exact>
-          <NavBar />
+          <NavBar toggle={toggle}/>
+          <MobileMenu isOpen={isOpen} toggle={toggle}/>
           <Intro />
           <About />
           <Skills />
