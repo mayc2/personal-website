@@ -116,17 +116,22 @@ const NavBtnLink = styled(LinkScroll)`
   }
 `;
 
-export const NavBar = () => {
+type NavBarProps = {
+  toggle: () => void;
+}
+
+export const NavBar = (props: NavBarProps) => {
+  const { toggle} = props;
+
   return (
     <AppBar>
       <HomeIcon />
-      <MobileIcon>
+      <MobileIcon onClick={toggle}>
         <Menu color={PRIMARY_FONT_COLOR} />
       </MobileIcon>
       <NavMenu>
         <NavItem>
           <NavLinkScroll
-            // active
             to="about"
             smooth={true}
             duration={500}

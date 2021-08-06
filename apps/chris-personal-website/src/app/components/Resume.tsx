@@ -14,6 +14,15 @@ import { Hero } from '../common/styles/Hero';
 const ResumeHeader = styled.h1`
     color: ${PRIMARY_FONT_COLOR};
     padding-left: 6rem;
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.9rem;
+      padding: 2rem;
+      margin-left: 1rem;
+      // margin-right: auto;
+      // margin-left: auto;
+      // padding: 20px;
+    }
 `;
 
 const ReturnToHomeWrapper = styled(Link)`
@@ -36,10 +45,16 @@ const ReturnToHomeWrapper = styled(Link)`
       stroke: ${EMPHASIS_FONT_COLOR};
     }
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 0 1rem;
+    width: 3.5rem;
+  }
 `;
 
 const ReturnToHome = styled.div`
-padding-left: 5px;
+  padding-left: 5px;
 `;
 
 const TroubleViewingPrompt = styled.p`
