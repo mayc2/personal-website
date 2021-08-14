@@ -10,6 +10,7 @@ import { About } from './components/About';
 import { Resume } from './components/Resume';
 import { MobileMenu } from './components/MobileMenu';
 import { useState } from 'react';
+import { PopUp } from './common/components/PopUp';
 
 // type Align = 'start' | 'center' | 'end' | 'baseline' | 'stretch';
 
@@ -24,6 +25,7 @@ export function App() {
     <Router>
       <Switch>
         <Route path="/" exact>
+          <PopUp />
           <NavBar toggle={toggle}/>
           <MobileMenu isOpen={isOpen} toggle={toggle}/>
           <Intro />
