@@ -46,7 +46,7 @@ const CloseIcon = styled(FormClose)`
   top: 0;
   right: 0;
   position: fixed;
-  margin-right: 1.2em;
+  margin-right: 1.5em;
   margin-top: 1.6em;
 
   &:hover {
