@@ -146,6 +146,8 @@ export const Intro = () => {
             </IntroHeadingWrapper>
             <IntroSubHeadingWrapper>
               <h2>Product-Focused &#183; Pragmatic</h2>
+              <br />
+              <p>Software Development Engineer III, Workday</p>
               <p>San Francisco, CA</p>
             </IntroSubHeadingWrapper>
           </IntroHeadingFlexWrapper>
