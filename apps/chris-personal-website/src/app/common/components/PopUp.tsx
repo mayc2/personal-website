@@ -92,6 +92,10 @@ const EnterSiteButton = styled.button`
     transition: all 0.2s ease-in-out;
     box-shadow: 0px 0.5px 5px ${SECONDARY_BACKGROUND_COLOR};
   }
+
+  @media screen and (max-width: 420px) {
+    width: 40%;
+  }
 `;
 
 export const PopUp = () => {
