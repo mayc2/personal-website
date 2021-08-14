@@ -111,13 +111,14 @@ export const PopUp = () => {
         <Message>
           <h1>Welcome!</h1>
           <br />
-          <br />
           <p>Thanks for visiting my site.</p>
           <p>
             I have developed this site using React w/ hooks, Emotion for styled
             components and Nx build framework to support a monorepo of all
             future projects I take on.
           </p>
+          <br />
+          <p><b>Site is still a work in progress. :)</b></p>
         </Message>
         <EnterSiteButton onClick={closePopUp}>Enter Site!</EnterSiteButton>
       </PopUpWindow>
