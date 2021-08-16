@@ -33,12 +33,12 @@ export const About = () => {
           <SubHeading>Professional</SubHeading>
           <TextSection>
             My most recent work experience has been developing the front-end
-            codelines and build systems of Workday’s analytics platform.
+            codelines and build-systems of Workday’s analytics platform.
           </TextSection>
           <TextSection>
-            I have experience building enterprise level web applications that
+            I have experience building enterprise-level web applications that
             serve a broad range of Fortune 500 companies. I take pride in my
-            contributions towards multiple product and platform go-lives. Thanks
+            contributions toward multiple product and platform go-lives. Thanks
             for your time!
           </TextSection>
         </ContentSection>
@@ -54,7 +54,7 @@ export const About = () => {
             round, hiking during the summer and ski/snowboarding in the winter.
           </TextSection>
           <TextSection>
-            Otherwise you can catch me eating and drinking my way through the
+            Otherwise, you can catch me eating and drinking my way through the
             greater Bay Area and Sonoma/Napa Valley regions!
           </TextSection>
         </ContentSection>
