@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Github } from 'grommet-icons';
+import { WithTitle } from '../components/WithTitle';
 import { SECONDARY_FONT_COLOR, PRIMARY_FONT_COLOR } from '../constants/colors';
 
 const GithubIconWrapper = styled(Github)`
@@ -10,5 +11,9 @@ const GithubIconWrapper = styled(Github)`
 `;
 
 export const GithubIcon = () => {
-  return <GithubIconWrapper a11yTitle="Github" color={SECONDARY_FONT_COLOR} />;
+  return (
+    <WithTitle title='Link to Github'>
+      <GithubIconWrapper a11yTitle='Github' color={SECONDARY_FONT_COLOR} />
+    </WithTitle>
+  );
 };

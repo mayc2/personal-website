@@ -1,6 +1,7 @@
-import styled from "@emotion/styled";
-import { MailOption } from "grommet-icons"
-import { PRIMARY_FONT_COLOR, SECONDARY_FONT_COLOR } from "../constants/colors"
+import styled from '@emotion/styled';
+import { MailOption } from 'grommet-icons';
+import { WithTitle } from '../components/WithTitle';
+import { PRIMARY_FONT_COLOR, SECONDARY_FONT_COLOR } from '../constants/colors';
 
 const MailIconWrapper = styled(MailOption)`
   &:hover {
@@ -10,7 +11,9 @@ const MailIconWrapper = styled(MailOption)`
 `;
 
 export const MailIcon = () => {
-    return (
-    <MailIconWrapper a11yTitle="Email" color={SECONDARY_FONT_COLOR}/>
-    );
+  return (
+    <WithTitle title='Click to send me an email.'>
+      <MailIconWrapper a11yTitle='Email' color={SECONDARY_FONT_COLOR} />
+    </WithTitle>
+  );
 };

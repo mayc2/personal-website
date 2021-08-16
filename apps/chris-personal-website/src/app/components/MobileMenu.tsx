@@ -41,8 +41,13 @@ const SidebarWrapper = styled.div`
 `;
 
 const CloseIcon = styled(FormClose)`
-  padding-top: 0;
-    margin-left: 90%;
+  // padding-top: 0;
+  // margin-left: 90%;
+  top: 0;
+  right: 0;
+  position: fixed;
+  margin-right: 1.5em;
+  margin-top: 1.6em;
 
   &:hover {
     transition: all 0.2s ease-in-out;
@@ -52,7 +57,7 @@ const CloseIcon = styled(FormClose)`
 `;
 
 const MenuWrapper = styled.div`
-display: ${(props: MenuWrapperProps) => (props.isOpen ? 'block' : 'none')};
+  display: ${(props: MenuWrapperProps) => (props.isOpen ? 'block' : 'none')};
   color: ${PRIMARY_FONT_COLOR};
 `;
 
@@ -63,8 +68,8 @@ const Menu = styled.ul`
   text-align: center;
 
   @media screen and (max-width: 480px) {
-      grid-template-rows: repeat(6, 60px);
-}
+    grid-template-rows: repeat(6, 60px);
+  }
 `;
 
 const SideBarHoverStyle = css`
@@ -79,7 +84,7 @@ const SideBarHoverStyle = css`
 `;
 
 const SideBarActiveStyle = css`
-&.active {
+  &.active {
     color: ${PRIMARY_FONT_COLOR};
     border-bottom: ${`3px solid ${EMPHASIS_FONT_COLOR}`};
     width: 30%;
@@ -107,8 +112,8 @@ const MenuLinkRoute = styled(LinkRoute)`
   padding: 1.5rem;
   ${SideBarHoverStyle};
   &:hover {
-      padding: 1.1rem;
-      margin-bottom: .3rem;
+    padding: 1.1rem;
+    margin-bottom: 0.3rem;
   }
 `;
 
@@ -156,9 +161,9 @@ export const MobileMenu = (props: MobileMenuProps) => {
   const { isOpen, toggle } = props;
 
   const toggleHome = () => {
-      toggle();
-      animateScroll.scrollToTop();
-  }
+    toggle();
+    animateScroll.scrollToTop();
+  };
 
   return (
     <SidebarWrapper isOpen={isOpen}>
