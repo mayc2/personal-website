@@ -1,12 +1,9 @@
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import React, { useEffect, useState } from 'react';
 import {
-    EMPHASIS_FONT_COLOR,
+  EMPHASIS_FONT_COLOR,
   PRIMARY_BACKGROUND_COLOR,
-  PRIMARY_FONT_COLOR,
-  PRIMARY_SELECTION_COLOR,
   SECONDARY_BACKGROUND_COLOR,
-  SECONDARY_FONT_COLOR,
   SECONDARY_SELECTION_COLOR,
 } from '../constants/colors';
 
@@ -25,6 +22,7 @@ const PopUpWindow = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  border-radius: 10px;
   width: 35%;
   height: 40%;
   left: 50%;
@@ -114,11 +112,13 @@ export const PopUp = () => {
           <p>Thanks for visiting my site.</p>
           <p>
             I have developed this site using React w/ hooks, Emotion for styled
-            components and Nx build framework to support a monorepo of all
-            future projects I take on.
+            components (no bootstrap) and the Nx build framework to support a
+            monorepo of all future projects I take on.
           </p>
           <br />
-          <p><b>Site is still a work in progress. :)</b></p>
+          <p>
+            <b>Site is still a work in progress... :)</b>
+          </p>
         </Message>
         <EnterSiteButton onClick={closePopUp}>Enter Site!</EnterSiteButton>
       </PopUpWindow>
