@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import {
   EMPHASIS_FONT_COLOR,
@@ -20,7 +20,7 @@ const PopUpWrapper = styled.div`
 const PopUpWindow = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
   border-radius: 10px;
   width: 35%;
@@ -44,18 +44,10 @@ const PopUpWindow = styled.div`
 `;
 
 const Message = styled.div`
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 20px;
+  margin-left: 20px;
   text-align: center;
   margin-top: 2em;
-
-  @media screen and (max-width: 768px) {
-    margin-top: 10em;
-  }
-
-  @media screen and (max-width: 420px) {
-    margin-top: 3em;
-  }
 `;
 
 const CloseIcon = styled.span`
@@ -78,7 +70,7 @@ const CloseIcon = styled.span`
 const EnterSiteButton = styled.button`
   color: ${PRIMARY_BACKGROUND_COLOR};
   background-color: ${EMPHASIS_FONT_COLOR};
-  margin-bottom: 10%;
+  margin: 10%;
   text-align: center;
   padding: 5px;
   border-radius: 5px;
@@ -96,11 +88,13 @@ const EnterSiteButton = styled.button`
   }
 `;
 
-export const PopUp = () => {
-  const [showPopUp, setShowPopUp] = useState(true);
-  const closePopUp = () => {
-    setShowPopUp(!showPopUp);
-  };
+interface PopUpProps {
+  showPopUp: boolean;
+  closePopUp: () => void;
+}
+
+export const PopUp = (props: PopUpProps) => {
+  const { showPopUp, closePopUp } = props;
 
   return showPopUp ? (
     <PopUpWrapper>
