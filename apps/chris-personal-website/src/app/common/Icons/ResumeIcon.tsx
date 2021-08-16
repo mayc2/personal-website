@@ -1,5 +1,6 @@
-import styled from "@emotion/styled";
-import { DocumentUser } from "grommet-icons";
+import styled from '@emotion/styled';
+import { DocumentUser } from 'grommet-icons';
+import { WithTitle } from '../components/WithTitle';
 import { PRIMARY_FONT_COLOR, SECONDARY_FONT_COLOR } from '../constants/colors';
 
 const DocumentWrapper = styled(DocumentUser)`
@@ -10,7 +11,9 @@ const DocumentWrapper = styled(DocumentUser)`
 `;
 
 export const ResumeIcon = () => {
-    return (
-        <DocumentWrapper a11yTitle="Resume" color={SECONDARY_FONT_COLOR}/>
-    );
+  return (
+    <WithTitle title='Link to Resume'>
+      <DocumentWrapper a11yTitle='Resume' color={SECONDARY_FONT_COLOR} />
+    </WithTitle>
+  );
 };

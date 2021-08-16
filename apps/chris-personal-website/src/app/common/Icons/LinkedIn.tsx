@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Linkedin } from 'grommet-icons';
+import { WithTitle } from '../components/WithTitle';
 import {
   PRIMARY_FONT_COLOR,
   PRIMARY_LINKEDIN_COLOR,
@@ -17,5 +18,9 @@ const LinkedinWrapper = styled(Linkedin)`
 `;
 
 export const LinkedIn = () => {
-  return <LinkedinWrapper a11yTitle="LinkedIn" color="plain"/>;
+  return (
+    <WithTitle title='Link to LinkedIn Profile'>
+      <LinkedinWrapper a11yTitle='LinkedIn' color='plain' />
+    </WithTitle>
+  );
 };
