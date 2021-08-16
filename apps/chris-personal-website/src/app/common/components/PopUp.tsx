@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import {
   EMPHASIS_FONT_COLOR,
@@ -95,6 +95,20 @@ interface PopUpProps {
 
 export const PopUp = (props: PopUpProps) => {
   const { showPopUp, closePopUp } = props;
+  const enterSiteButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (enterSiteButtonRef && enterSiteButtonRef.current) {
+      enterSiteButtonRef.current.focus();
+    }
+  });
+
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    console.log(event.key);
+    if (event.key === 'Enter') {
+      closePopUp();
+    }
+  };
 
   return showPopUp ? (
     <PopUpWrapper>
@@ -114,7 +128,13 @@ export const PopUp = (props: PopUpProps) => {
             <b>Site is still a work in progress... :)</b>
           </p>
         </Message>
-        <EnterSiteButton onClick={closePopUp}>Enter Site!</EnterSiteButton>
+        <EnterSiteButton
+          ref={enterSiteButtonRef}
+          onClick={closePopUp}
+          onKeyPress={handleKeyPress}
+        >
+          Enter Site!
+        </EnterSiteButton>
       </PopUpWindow>
     </PopUpWrapper>
   ) : (
