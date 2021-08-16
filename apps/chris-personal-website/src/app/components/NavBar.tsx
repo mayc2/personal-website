@@ -118,10 +118,10 @@ const NavBtnLink = styled(LinkScroll)`
 
 type NavBarProps = {
   toggle: () => void;
-}
+};
 
 export const NavBar = (props: NavBarProps) => {
-  const { toggle} = props;
+  const { toggle } = props;
 
   return (
     <AppBar>
@@ -132,57 +132,57 @@ export const NavBar = (props: NavBarProps) => {
       <NavMenu>
         <NavItem>
           <NavLinkScroll
-            to="about"
+            to='about'
             smooth={true}
             duration={500}
             spy={true}
-            activeClass="active"
+            activeClass='active'
           >
             About
           </NavLinkScroll>
         </NavItem>
         <NavItem>
           <NavLinkScroll
-            to="skills"
+            to='personal'
             smooth={true}
             duration={500}
             spy={true}
-            activeClass="active"
-          >
-            Skills
-          </NavLinkScroll>
-        </NavItem>
-        <NavItem>
-          <NavLinkScroll
-            to="personal"
-            smooth={true}
-            duration={500}
-            spy={true}
-            activeClass="active"
+            activeClass='active'
           >
             Personal
           </NavLinkScroll>
         </NavItem>
         <NavItem>
           <NavLinkScroll
-            to="professional"
+            to='professional'
             smooth={true}
             duration={500}
             spy={true}
-            activeClass="active"
+            activeClass='active'
           >
             Professional
           </NavLinkScroll>
         </NavItem>
+        <NavItem>
+          <NavLinkScroll
+            to='skills'
+            smooth={true}
+            duration={500}
+            spy={true}
+            activeClass='active'
+          >
+            Skills
+          </NavLinkScroll>
+        </NavItem>
       </NavMenu>
       <NavBtn>
-        <NavLinkRoute to="/resume">Resume</NavLinkRoute>
+        <NavLinkRoute to='/resume'>Resume</NavLinkRoute>
         <NavBtnLink
-          to="contact"
+          to='contact'
           smooth={true}
           duration={500}
           spy={true}
-          activeClass="active"
+          activeClass='active'
         >
           Contact
         </NavBtnLink>

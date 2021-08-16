@@ -34,9 +34,9 @@ export function App() {
           <MobileMenu isOpen={isOpen} toggle={toggle} />
           <Intro />
           <About />
-          <Skills />
           <PersonalProjects />
           <ProfessionalPortfolio />
+          <Skills />
           <Contact />
         </Route>
         <Route path='/resume' exact>

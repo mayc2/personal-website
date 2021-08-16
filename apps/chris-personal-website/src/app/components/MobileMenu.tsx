@@ -168,73 +168,73 @@ export const MobileMenu = (props: MobileMenuProps) => {
   return (
     <SidebarWrapper isOpen={isOpen}>
       <CloseIcon
-        cursor="pointer"
+        cursor='pointer'
         color={PRIMARY_FONT_COLOR}
-        a11yTitle="close"
+        a11yTitle='close'
         onClick={toggle}
       />
       <MenuWrapper isOpen={isOpen}>
         <MenuLinkScroll
-          to="/"
+          to='/'
           smooth={true}
           duration={500}
           spy={true}
-          activeClass="active"
+          activeClass='active'
           onClick={toggleHome}
         >
           Home
         </MenuLinkScroll>
         <Menu>
           <MenuLinkScroll
-            to="about"
+            to='about'
             smooth={true}
             duration={500}
             spy={true}
-            activeClass="active"
+            activeClass='active'
             onClick={toggle}
           >
             About
           </MenuLinkScroll>
           <MenuLinkScroll
-            to="skills"
+            to='personal'
             smooth={true}
             duration={500}
             spy={true}
-            activeClass="active"
-            onClick={toggle}
-          >
-            Skills
-          </MenuLinkScroll>
-          <MenuLinkScroll
-            to="personal"
-            smooth={true}
-            duration={500}
-            spy={true}
-            activeClass="active"
+            activeClass='active'
             onClick={toggle}
           >
             Personal
           </MenuLinkScroll>
           <MenuLinkScroll
-            to="professional"
+            to='professional'
             smooth={true}
             duration={500}
             spy={true}
-            activeClass="active"
+            activeClass='active'
             onClick={toggle}
           >
             Professional
           </MenuLinkScroll>
+          <MenuLinkScroll
+            to='skills'
+            smooth={true}
+            duration={500}
+            spy={true}
+            activeClass='active'
+            onClick={toggle}
+          >
+            Skills
+          </MenuLinkScroll>
         </Menu>
-        <MenuLinkRoute to="resume" onClick={toggle}>
+        <MenuLinkRoute to='resume' onClick={toggle}>
           Resume
         </MenuLinkRoute>
         <MenuButtonScroll
-          to="contact"
+          to='contact'
           smooth={true}
           duration={500}
           spy={true}
-          activeClass="active"
+          activeClass='active'
           onClick={toggle}
         >
           Contact
