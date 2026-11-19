@@ -93,7 +93,7 @@ export const Resume = () => {
         <TroubleViewingPrompt>
           Having trouble viewing?{' '}
           <ExternalLink
-            href="https://bit.ly/3i816sS"
+            href="/assets/chris_may_2026_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -103,13 +103,13 @@ export const Resume = () => {
 
         <ObjectWrapper>
           <object
-            data="/assets/chris_may_2021_resume.pdf"
+            data="/assets/chris_may_2026_resume.pdf"
             type="application/pdf"
             width="100%"
             height="100%"
           >
             <embed
-              src="/assets/chris_may_2021_resume.pdf"
+              src="/assets/chris_may_2026_resume.pdf"
               type="application/pdf"
             />
           </object>

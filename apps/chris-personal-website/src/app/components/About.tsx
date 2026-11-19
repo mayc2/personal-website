@@ -32,14 +32,19 @@ export const About = () => {
         <ContentSection>
           <SubHeading>Professional</SubHeading>
           <TextSection>
-            My most recent work experience has been developing the front-end
-            codelines and build-systems of Workday’s analytics platform.
+            I’m a hands-on technical lead with 10+ years in enterprise
+            software. As Verantos’s first engineer I built the research
+            platform foundation and the first-generation AI Research
+            Assistant, then brought on a multidisciplinary team to scale the
+            platform into tool-orchestrated agents for clinical research.
           </TextSection>
           <TextSection>
-            I have experience building enterprise-level web applications that
-            serve a broad range of Fortune 500 companies. I take pride in my
-            contributions toward multiple product and platform go-lives. Thanks
-            for your time!
+            I focus on agent reliability, analytical performance, evaluation
+            and intuitive user experiences. The Verantos Evidence Platform won
+            the 2026 Fierce AI Innovation Award in Real-World Evidence &amp;
+            Data Analytics. Before Verantos I spent five years at Workday,
+            most recently on the front end and build systems of Prism
+            Analytics.
           </TextSection>
         </ContentSection>
         <ContentSection>

@@ -75,7 +75,7 @@ export const Contact = () => {
             </ContactIconWrapper>
           </a>
           <a
-            href="https://bit.ly/3i816sS"
+            href="/assets/chris_may_2026_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >

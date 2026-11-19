@@ -13,6 +13,10 @@ describe('App', () => {
     expect(
       screen.getByRole('heading', { name: 'Chris May' })
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Applied AI Engineer' })
+    ).toBeInTheDocument();
+    expect(screen.getByText('Technical Lead, Verantos')).toBeInTheDocument();
     for (const section of [
       'A little about myself...',
       'Personal Projects',

@@ -62,6 +62,9 @@ export const PersonalProjects = () => {
           play={3000}
         >
           <CarouselCard>
+            <h3>Wedding Website &amp; Guestbook</h3>
+          </CarouselCard>
+          <CarouselCard>
             <h3>Personal Website</h3>
           </CarouselCard>
           <CarouselCard>
