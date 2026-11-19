@@ -119,13 +119,9 @@ export const PopUp = (props: PopUpProps) => {
           <br />
           <p>Thanks for visiting my site.</p>
           <p>
-            I have developed this site using React w/ hooks, Emotion for styled
-            components (no bootstrap) and the Nx build framework to support a
-            monorepo of all future projects I take on.
-          </p>
-          <br />
-          <p>
-            <b>Site is still a work in progress... :)</b>
+            This site is a React + Vite app styled with Emotion and built with
+            Nx. The source is on GitHub, and my resume is one click away in the
+            top right.
           </p>
         </Message>
         <EnterSiteButton

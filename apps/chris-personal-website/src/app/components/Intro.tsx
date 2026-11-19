@@ -142,13 +142,13 @@ export const Intro = () => {
           <IntroHeadingFlexWrapper>
             <IntroHeadingWrapper>
               <h1>Chris May</h1>
-              <h2>Full-Stack Developer</h2>
+              <h2>Applied AI Engineer</h2>
             </IntroHeadingWrapper>
             <IntroSubHeadingWrapper>
-              <h2>Product-Focused &#183; Pragmatic</h2>
+              <h2>Agent Systems &#183; Platforms</h2>
               <br />
-              <p>Software Development Engineer III, Workday</p>
-              <p>San Francisco, CA</p>
+              <p>Technical Lead, Verantos</p>
+              <p>San Francisco Bay Area</p>
             </IntroSubHeadingWrapper>
           </IntroHeadingFlexWrapper>
           <ContactWrapper>
