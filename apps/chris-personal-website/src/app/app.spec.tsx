@@ -31,9 +31,11 @@ describe('App', () => {
     render(<App />);
     expect(screen.getAllByText('Verantos').length).toBeGreaterThan(0);
     expect(screen.getByText('Workday')).toBeInTheDocument();
-    expect(
-      screen.getByRole('link', { name: /Wedding website & guestbook/ })
-    ).toHaveAttribute('href', 'https://julianaandchris2027.com');
+    expect(screen.getByText(/Wedding website & guestbook/)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /This site/ })).toHaveAttribute(
+      'href',
+      'https://github.com/mayc2/personal-website'
+    );
   });
 
   it('renders the resume page on /resume', () => {

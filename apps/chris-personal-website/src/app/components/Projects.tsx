@@ -8,18 +8,22 @@ export const Projects = () => (
       {PROJECTS.map((p) => (
         <li key={p.name} className='py-4 first:pt-0'>
           <div className='flex items-baseline justify-between gap-4'>
-            <a
-              href={p.href}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='group inline-flex items-center gap-1 font-medium text-foreground underline decoration-amber decoration-[1.5px] underline-offset-[3px] hover:decoration-accent-foreground'
-            >
-              {p.name}
-              <ArrowUpRight
-                className='size-3.5 text-muted-foreground transition-transform group-hover:-translate-y-px group-hover:translate-x-px'
-                aria-hidden='true'
-              />
-            </a>
+            {p.href ? (
+              <a
+                href={p.href}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='group inline-flex items-center gap-1 font-medium text-foreground underline decoration-amber decoration-[1.5px] underline-offset-[3px] hover:decoration-accent-foreground'
+              >
+                {p.name}
+                <ArrowUpRight
+                  className='size-3.5 text-muted-foreground transition-transform group-hover:-translate-y-px group-hover:translate-x-px'
+                  aria-hidden='true'
+                />
+              </a>
+            ) : (
+              <span className='font-medium text-foreground'>{p.name}</span>
+            )}
             {p.meta && (
               <span className='shrink-0 text-sm text-muted-foreground'>
                 {p.meta}

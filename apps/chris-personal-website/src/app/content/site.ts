@@ -111,7 +111,7 @@ export const STACK: { title: string; items: string }[] = [
 
 export type Project = {
   name: string;
-  href: string;
+  href?: string;
   detail: string;
   meta?: string;
 };
@@ -119,10 +119,9 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     name: 'Wedding website & guestbook',
-    href: 'https://julianaandchris2027.com',
     detail:
       'React + Vite on Cloudflare with a Sanity studio for content; guestbook, schedule, travel and FAQ.',
-    meta: '2025 – 2026',
+    meta: '2025 – 2026 · private',
   },
   {
     name: 'This site',
