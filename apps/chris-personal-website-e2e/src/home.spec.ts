@@ -1,32 +1,18 @@
 import { expect, test } from '@playwright/test';
 
-const SECTIONS = [
-  'A little about myself...',
-  'Personal Projects',
-  'Experience',
-  'Skills',
-  'Wanna Say Hey?',
-];
-
 test.describe('home page', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
   });
 
-  test('shows the welcome popup and dismisses it', async ({ page }) => {
-    const enter = page.getByRole('button', { name: 'Enter Site!' });
-    await expect(enter).toBeVisible();
-    await enter.click();
-    await expect(enter).toBeHidden();
-  });
-
-  test('renders every section and the contact links', async ({ page }) => {
-    await page.getByRole('button', { name: 'Enter Site!' }).click();
+  test('renders name, bio and every section', async ({ page }) => {
     await expect(
-      page.getByRole('heading', { name: 'Chris May' })
+      page.getByRole('heading', { level: 1, name: 'Chris May' })
     ).toBeVisible();
-    for (const name of SECTIONS) {
-      await expect(page.getByRole('heading', { name, exact: true })).toBeAttached();
+    for (const name of ['About', 'Work', 'Projects', 'Contact']) {
+      await expect(
+        page.getByRole('heading', { level: 2, name, exact: true })
+      ).toBeAttached();
     }
     await expect(
       page.locator('a[href="https://github.com/mayc2"]').first()
@@ -34,6 +20,37 @@ test.describe('home page', () => {
     await expect(
       page.locator('a[href^="https://www.linkedin.com/in/chrismhmay"]').first()
     ).toBeAttached();
+  });
+
+  test('top bar links jump to sections and open the resume', async ({
+    page,
+  }) => {
+    const nav = page.getByRole('navigation', { name: 'Primary' });
+    await nav.getByRole('link', { name: 'Work' }).click();
+    await expect(page).toHaveURL(/#work$/);
+    await expect(
+      page.getByRole('heading', { level: 2, name: 'Work' })
+    ).toBeInViewport();
+    await expect(nav.getByRole('link', { name: 'Resume' })).toHaveAttribute(
+      'href',
+      /\.pdf$/
+    );
+  });
+
+  test('project links point at real destinations', async ({
+    page,
+    request,
+  }) => {
+    const links = page.locator('#projects a[href^="http"]');
+    await expect(links.first()).toBeVisible();
+    const hrefs = await links.evaluateAll((as) =>
+      as.map((a) => (a as unknown as { href: string }).href)
+    );
+    expect(hrefs.length).toBeGreaterThanOrEqual(5);
+    for (const href of hrefs.filter((h) => h.includes('github.com'))) {
+      const res = await request.head(href).catch(() => null);
+      expect(res?.status(), href).toBeLessThan(400);
+    }
   });
 
   test('has no console errors or failed requests', async ({ page }) => {
@@ -48,42 +65,15 @@ test.describe('home page', () => {
       (r) => r.status() >= 400 && problems.push(`${r.status()} ${r.url()}`)
     );
     await page.goto('/');
-    await page.getByRole('button', { name: 'Enter Site!' }).click();
     await page.goto('/resume');
     await expect(page.locator('object[type="application/pdf"]')).toBeAttached();
     expect(problems).toEqual([]);
   });
-});
 
-test.describe('desktop navigation', () => {
-  test.skip(({ isMobile }) => isMobile, 'desktop nav bar is hidden on mobile');
-
-  test('navigates to the resume page and back', async ({ page }) => {
-    await page.goto('/');
-    await page.getByRole('button', { name: 'Enter Site!' }).click();
-    await page.getByRole('banner').getByRole('link', { name: 'Resume' })
-      .click();
-    await expect(page).toHaveURL(/\/resume$/);
-    await expect(page.getByText("Chris May's Resume")).toBeVisible();
-    await page.getByRole('link', { name: /Return To Home/ }).click();
-    await expect(page).toHaveURL(/\/$/);
-    await expect(
-      page.getByRole('heading', { name: 'Chris May' })
-    ).toBeVisible();
-  });
-});
-
-test.describe('mobile menu', () => {
-  test.skip(({ isMobile }) => !isMobile, 'mobile viewport only');
-
-  test('opens from the hamburger and closes', async ({ page }) => {
-    await page.goto('/');
-    await page.getByRole('button', { name: 'Enter Site!' }).click();
-    await page.getByRole('button', { name: 'Open menu' }).click();
-    const dialog = page.getByRole('dialog');
-    await expect(dialog).toBeVisible();
-    await expect(dialog.getByRole('link', { name: 'Resume' })).toBeVisible();
-    await dialog.getByRole('button', { name: 'Close' }).click();
-    await expect(dialog).toBeHidden();
+  test('text column stays readable', async ({ page }) => {
+    const widths = await page
+      .locator('main p')
+      .evaluateAll((ps) => ps.map((p) => p.getBoundingClientRect().width));
+    for (const w of widths) expect(w).toBeLessThanOrEqual(680);
   });
 });

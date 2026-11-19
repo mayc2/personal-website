@@ -11,8 +11,7 @@ test('resume page embeds the PDF and offers a fallback link', async ({
   const res = await request.get(pdfSrc as string);
   expect(res.status()).toBe(200);
   expect(res.headers()['content-type']).toContain('pdf');
-  await expect(page.getByRole('link', { name: 'Click here.' })).toHaveAttribute(
-    'target',
-    '_blank'
-  );
+  await expect(
+    page.getByRole('link', { name: 'Open the PDF' })
+  ).toHaveAttribute('target', '_blank');
 });

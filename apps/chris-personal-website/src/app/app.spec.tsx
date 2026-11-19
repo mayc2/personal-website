@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 import App from './app';
 
@@ -8,44 +7,44 @@ describe('App', () => {
     window.history.pushState({}, '', '/');
   });
 
-  it('renders the intro heading and all home sections', () => {
+  it('renders the name, bio links and every section', () => {
     render(<App />);
     expect(
-      screen.getByRole('heading', { name: 'Chris May' })
+      screen.getByRole('heading', { level: 1, name: 'Chris May' })
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: 'Applied AI Engineer' })
-    ).toBeInTheDocument();
-    expect(screen.getByText('Technical Lead, Verantos')).toBeInTheDocument();
-    for (const section of [
-      'A little about myself...',
-      'Personal Projects',
-      'Experience',
-      'Skills',
-      'Wanna Say Hey?',
-    ]) {
+    for (const name of ['About', 'Work', 'Projects', 'Contact']) {
       expect(
-        screen.getByRole('heading', { name: section })
+        screen.getByRole('heading', { level: 2, name })
       ).toBeInTheDocument();
     }
+    expect(screen.getAllByRole('link', { name: 'Resume' })[0]).toHaveAttribute(
+      'href',
+      '/assets/chris_may_2026_resume.pdf'
+    );
+    expect(screen.getAllByRole('link', { name: 'GitHub' })[0]).toHaveAttribute(
+      'href',
+      'https://github.com/mayc2'
+    );
   });
 
-  it('shows the welcome popup and closes it on Enter Site', async () => {
+  it('lists work history and projects with real links', () => {
     render(<App />);
-    const enter = screen.getByRole('button', { name: 'Enter Site!' });
-    expect(enter).toBeInTheDocument();
-    await userEvent.click(enter);
+    expect(screen.getAllByText('Verantos').length).toBeGreaterThan(0);
+    expect(screen.getByText('Workday')).toBeInTheDocument();
     expect(
-      screen.queryByRole('button', { name: 'Enter Site!' })
-    ).not.toBeInTheDocument();
+      screen.getByRole('link', { name: /Wedding website & guestbook/ })
+    ).toHaveAttribute('href', 'https://julianaandchris2027.com');
   });
 
   it('renders the resume page on /resume', () => {
     window.history.pushState({}, '', '/resume');
     render(<App />);
-    expect(screen.getByText("Chris May's Resume")).toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: /Return To Home/ })
-    ).toHaveAttribute('href', '/');
+      screen.getByRole('heading', { level: 1, name: 'Resume' })
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Open the PDF' })).toHaveAttribute(
+      'href',
+      '/assets/chris_may_2026_resume.pdf'
+    );
   });
 });

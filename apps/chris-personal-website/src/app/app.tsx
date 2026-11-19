@@ -1,33 +1,25 @@
-import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { Intro } from './components/Intro';
-import { SiteHeader } from './components/SiteHeader';
-import { Skills } from './components/Skills';
-import { Experience } from './components/Experience';
-import { PersonalProjects } from './components/PersonalProjects';
-import { Contact } from './components/Contact';
+import { TopBar } from './components/TopBar';
+import { Hero } from './components/Hero';
 import { About } from './components/About';
+import { Work } from './components/Work';
+import { Projects } from './components/Projects';
+import { Contact } from './components/Contact';
 import { Resume } from './components/Resume';
-import { PopUp } from './common/components/PopUp';
 
-const Home = () => {
-  const [showPopUp, setShowPopUp] = useState(true);
-  const closePopUp = () => setShowPopUp((shown) => !shown);
-
-  return (
-    <div id='top'>
-      <PopUp showPopUp={showPopUp} closePopUp={closePopUp} />
-      <SiteHeader />
-      <Intro />
+const Home = () => (
+  <>
+    <TopBar />
+    <main>
+      <Hero />
       <About />
-      <PersonalProjects />
-      <Experience />
-      <Skills />
+      <Work />
+      <Projects />
       <Contact />
-    </div>
-  );
-};
+    </main>
+  </>
+);
 
 export function App() {
   return (
