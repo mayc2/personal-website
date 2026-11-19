@@ -1,119 +1,31 @@
-import styled from '@emotion/styled';
-import { LinkPrevious } from 'grommet-icons';
-import { Link } from 'react-router-dom';
+import { Container, TextLink } from './Prose';
+import { TopBar } from './TopBar';
+import { Footer } from './Contact';
+import { LINKS } from '../content/site';
 
-import { HomeIcon } from '../common/components/HomeIcon';
-import {
-  EMPHASIS_FONT_COLOR,
-  PRIMARY_FONT_COLOR,
-  SECONDARY_FONT_COLOR,
-} from '../common/constants/colors';
-import { Hero } from '../common/styles/Hero';
-
-const ResumeHeader = styled.h1`
-    color: ${PRIMARY_FONT_COLOR};
-    padding-left: 6rem;
-
-    @media screen and (max-width: 768px) {
-      font-size: 0.9rem;
-      padding: 2rem;
-      margin-left: 1rem;
-      // margin-right: auto;
-      // margin-left: auto;
-      // padding: 20px;
-    }
-`;
-
-const ReturnToHomeWrapper = styled(Link)`
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0 1rem;
-  height: 100%;
-  flex-direction: row;
-  cursor: pointer;
-  color: ${SECONDARY_FONT_COLOR};
-
-  &:hover {
-    color: ${EMPHASIS_FONT_COLOR};
-    border-bottom: 3px solid ${EMPHASIS_FONT_COLOR};
-    transition: border-bottom 0.2s ease-in-out;
-
-    svg {
-      fill: ${EMPHASIS_FONT_COLOR};
-      stroke: ${EMPHASIS_FONT_COLOR};
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 0.7rem;
-    padding: 0 1rem;
-    width: 3.5rem;
-  }
-`;
-
-const ReturnToHome = styled.div`
-  padding-left: 5px;
-`;
-
-const TroubleViewingPrompt = styled.p`
-  color: ${SECONDARY_FONT_COLOR};
-  padding-bottom: 3px;
-  text-align: center;
-`;
-
-const ExternalLink = styled.a`
-  text-decoration: none;
-  color: ${EMPHASIS_FONT_COLOR};
-`;
-
-const ObjectWrapper = styled.div`
-  width: 75%;
-  height: 95%;
-`;
-
-export const Resume = () => {
-  return (
-    <>
-      <header className='sticky top-0 z-40 flex h-16 items-center justify-between border-b border-border/70 bg-background/80 px-4 backdrop-blur sm:px-6'>
-        <HomeIcon />
-        <ResumeHeader>Chris May's Resume</ResumeHeader>
-        <ReturnToHomeWrapper to="/">
-          <LinkPrevious
-            color={SECONDARY_FONT_COLOR}
-            a11yTitle="Back To Home"
-            cursor="pointer"
-            size="medium"
-          />
-          <ReturnToHome>Return To Home</ReturnToHome>
-        </ReturnToHomeWrapper>
-      </header>
-      <Hero>
-        <TroubleViewingPrompt>
+export const Resume = () => (
+  <>
+    <TopBar />
+    <main className='py-12'>
+      <Container>
+        <h1 className='text-[2rem] leading-[1.15]'>Resume</h1>
+        <p className='mt-3 text-sm text-muted-foreground'>
           Having trouble viewing?{' '}
-          <ExternalLink
-            href="/assets/chris_may_2026_resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Click here.
-          </ExternalLink>
-        </TroubleViewingPrompt>
-
-        <ObjectWrapper>
-          <object
-            data="/assets/chris_may_2026_resume.pdf"
-            type="application/pdf"
-            width="100%"
-            height="100%"
-          >
-            <embed
-              src="/assets/chris_may_2026_resume.pdf"
-              type="application/pdf"
-            />
-          </object>
-        </ObjectWrapper>
-      </Hero>
-    </>
-  );
-};
+          <TextLink href={LINKS.resume} external>
+            Open the PDF
+          </TextLink>
+          .
+        </p>
+        <object
+          data={LINKS.resume}
+          type='application/pdf'
+          className='mt-6 h-[80vh] w-full rounded-2xl border border-border/70 bg-card'
+          aria-label='Chris May resume PDF'
+        >
+          <embed src={LINKS.resume} type='application/pdf' />
+        </object>
+      </Container>
+    </main>
+    <Footer />
+  </>
+);

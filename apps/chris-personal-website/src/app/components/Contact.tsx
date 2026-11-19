@@ -1,90 +1,61 @@
-import styled from '@emotion/styled';
-import { GithubIcon } from '../common/Icons/GithubIcon';
-import { LinkedIn } from '../common/Icons/LinkedIn';
-import { MailIcon } from '../common/Icons/MailIcon';
-import { ResumeIcon } from '../common/Icons/ResumeIcon';
-import { ContactIconWrapper } from '../common/styles/ContactIconWrapper';
-import { Heading } from '../common/styles/Heading';
-import { Section } from '../common/styles/Section';
-import { SubHeading } from '../common/styles/SubHeading';
+import { Github, Linkedin, Mail } from 'lucide-react';
+import { Button } from '@chrismay/ui';
+import { Container } from './Prose';
+import { LINKS } from '../content/site';
 
-const ContactWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex: 1;
-  flex-wrap: wrap;
+const ICONS = [
+  {
+    href: `${LINKS.email}?subject=Hey%20Chris%2C%20Let's%20Chat`,
+    label: 'Email',
+    Icon: Mail,
+  },
+  { href: LINKS.linkedin, label: 'LinkedIn', Icon: Linkedin },
+  { href: LINKS.github, label: 'GitHub', Icon: Github },
+];
 
-  svg {
-    height: 48px;
-    width: 48px;
-  }
-
-  @media screen and (max-width: 768px) {
-    svg {
-      height: 24px;
-      width: 24px;
-    }
-  }
-`;
-
-const ContactContainer = styled.div`
-  margin-top: 10rem;
-`;
-
-const ContactFlexWrapper = styled.div`
-  display: flex;
-  flex: 1;
-`
-
-export const Contact = () => {
-  return (
-    <Section id="contact" className="contact">
-      <ContactContainer>
-        <Heading primary={true}>Wanna Say Hey?</Heading>
-        <SubHeading>I’d love to hear from you!</SubHeading>
-        <SubHeading>Pop me an email.</SubHeading>
-      </ContactContainer>
-      <ContactFlexWrapper>
-        <ContactWrapper>
-          <a
-            href="https://www.linkedin.com/in/chrismhmay/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ContactIconWrapper>
-              <LinkedIn />
-            </ContactIconWrapper>
+export const Contact = () => (
+  <section id='contact' className='scroll-mt-24 py-14 sm:py-20'>
+    <Container>
+      <div className='rounded-3xl bg-sage-soft/70 px-6 py-14 text-center sm:px-12'>
+        <h2 className='text-[1.75rem] leading-tight sm:text-[2rem]'>
+          Wanna say hey?
+        </h2>
+        <p className='mx-auto mt-3 max-w-md text-base text-muted-foreground'>
+          Whether it’s agents, platforms or a good restaurant in Napa, I’d love
+          to hear from you.
+        </p>
+        <Button asChild size='lg' className='mt-8'>
+          <a href={`${LINKS.email}?subject=Hey%20Chris%2C%20Let's%20Chat`}>
+            Pop me an email
           </a>
-          <a
-            href="https://github.com/mayc2"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ContactIconWrapper>
-              <GithubIcon />
-            </ContactIconWrapper>
-          </a>
-          <a
-            href="mailto:r16cmay@gmail.com?subject=Hey%20Chris%2C%20Let's%20Chat"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ContactIconWrapper>
-              <MailIcon />
-            </ContactIconWrapper>
-          </a>
-          <a
-            href="/assets/chris_may_2026_resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ContactIconWrapper>
-              <ResumeIcon />
-            </ContactIconWrapper>
-          </a>
-        </ContactWrapper>
-      </ContactFlexWrapper>
-    </Section>
-  );
-};
+        </Button>
+      </div>
+    </Container>
+  </section>
+);
+
+export const Footer = () => (
+  <footer className='border-t border-border/70 py-8'>
+    <Container className='flex flex-col items-center justify-between gap-4 sm:flex-row'>
+      <p className='text-sm text-muted-foreground'>
+        © {new Date().getFullYear()} Chris May · San Francisco Bay Area
+      </p>
+      <ul className='flex gap-2'>
+        {ICONS.map(({ href, label, Icon }) => (
+          <li key={label}>
+            <a
+              href={href}
+              aria-label={label}
+              {...(href.startsWith('http')
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
+              className='flex size-10 items-center justify-center rounded-full border border-border/70 text-muted-foreground transition-colors hover:border-sage/50 hover:text-foreground'
+            >
+              <Icon className='size-4' aria-hidden='true' />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Container>
+  </footer>
+);

@@ -1,33 +1,31 @@
-import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { Intro } from './components/Intro';
-import { SiteHeader } from './components/SiteHeader';
-import { Skills } from './components/Skills';
-import { Experience } from './components/Experience';
-import { PersonalProjects } from './components/PersonalProjects';
-import { Contact } from './components/Contact';
+import { TopBar } from './components/TopBar';
+import { Hero } from './components/Hero';
+import { Award } from './components/Award';
 import { About } from './components/About';
+import { Work } from './components/Work';
+import { Projects } from './components/Projects';
+import { Writing } from './components/Writing';
+import { Contact, Footer } from './components/Contact';
 import { Resume } from './components/Resume';
-import { PopUp } from './common/components/PopUp';
+import { PostPage, WritingIndex } from './components/WritingPages';
 
-const Home = () => {
-  const [showPopUp, setShowPopUp] = useState(true);
-  const closePopUp = () => setShowPopUp((shown) => !shown);
-
-  return (
-    <div id='top'>
-      <PopUp showPopUp={showPopUp} closePopUp={closePopUp} />
-      <SiteHeader />
-      <Intro />
+const Home = () => (
+  <>
+    <TopBar />
+    <main>
+      <Hero />
+      <Award />
       <About />
-      <PersonalProjects />
-      <Experience />
-      <Skills />
+      <Work />
+      <Projects />
+      <Writing />
       <Contact />
-    </div>
-  );
-};
+    </main>
+    <Footer />
+  </>
+);
 
 export function App() {
   return (
@@ -35,6 +33,8 @@ export function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/resume' element={<Resume />} />
+        <Route path='/writing' element={<WritingIndex />} />
+        <Route path='/writing/:slug' element={<PostPage />} />
       </Routes>
     </BrowserRouter>
   );
