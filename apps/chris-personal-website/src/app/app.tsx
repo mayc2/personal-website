@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Intro } from './components/Intro';
 import { NavBar } from './components/NavBar';
@@ -12,38 +12,36 @@ import { Resume } from './components/Resume';
 import { MobileMenu } from './components/MobileMenu';
 import { PopUp } from './common/components/PopUp';
 
-// type Align = 'start' | 'center' | 'end' | 'baseline' | 'stretch';
-
-export function App() {
-  const [isOpen, setisOpen] = useState(false);
+const Home = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [showPopUp, setShowPopUp] = useState(true);
 
-  const toggle = () => {
-    setisOpen(!isOpen);
-  };
-  const closePopUp = () => {
-    setShowPopUp(!showPopUp);
-  };
+  const toggle = () => setIsOpen((open) => !open);
+  const closePopUp = () => setShowPopUp((shown) => !shown);
 
   return (
-    <Router>
-      <Switch>
-        <Route path='/' exact>
-          <PopUp showPopUp={showPopUp} closePopUp={closePopUp} />
-          <NavBar toggle={toggle} />
-          <MobileMenu isOpen={isOpen} toggle={toggle} />
-          <Intro />
-          <About />
-          <PersonalProjects />
-          <ProfessionalPortfolio />
-          <Skills />
-          <Contact />
-        </Route>
-        <Route path='/resume' exact>
-          <Resume />
-        </Route>
-      </Switch>
-    </Router>
+    <>
+      <PopUp showPopUp={showPopUp} closePopUp={closePopUp} />
+      <NavBar toggle={toggle} />
+      <MobileMenu isOpen={isOpen} toggle={toggle} />
+      <Intro />
+      <About />
+      <PersonalProjects />
+      <ProfessionalPortfolio />
+      <Skills />
+      <Contact />
+    </>
+  );
+};
+
+export function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/resume' element={<Resume />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

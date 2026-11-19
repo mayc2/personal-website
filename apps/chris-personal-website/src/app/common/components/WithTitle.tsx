@@ -1,9 +1,12 @@
-import React from 'react';
+import type { PropsWithChildren } from 'react';
 
 interface WithTitleProps {
   title: string;
 }
 
-export const WithTitle: React.FC<WithTitleProps> = ({ title, children }) => {
+export const WithTitle = ({
+  title,
+  children,
+}: PropsWithChildren<WithTitleProps>) => {
   return <div title={title}>{children}</div>;
 };

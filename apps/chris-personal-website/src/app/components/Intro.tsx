@@ -181,7 +181,7 @@ export const Intro = () => {
             </a>
           </ContactWrapper>
         </IntroWrapper>
-        <ImageWrapper src="../assets/Chris.png" />
+        <ImageWrapper src="/assets/Chris.png" alt="Chris May" />
       </Hero>
     </section>
   );

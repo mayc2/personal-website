@@ -40,3 +40,14 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Nx / Vite / test tooling
+.nx/cache
+.nx/workspace-data
+/test-output
+**/test-output
+**/out-tsc
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
+playwright-report
+.firebase/

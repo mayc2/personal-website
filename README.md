@@ -1,94 +1,52 @@
+# chrismay.me — personal website
 
+Single-page React portfolio, deployed to Firebase Hosting (project `chrismay-41dcd`).
 
-# ChrisPersonalWebsite
+- Live: https://www.chrismay.me (Firebase Hosting custom domain; https://chrismay-41dcd.web.app is the same site)
+- Stack: Nx 24, Vite 8, React 19, TypeScript, Emotion, Grommet icons, react-router 7
+- Tests: Vitest + Testing Library (unit), Playwright (e2e, desktop + mobile Chrome)
 
-This project was generated using [Nx](https://nx.dev).
+## Local development
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+```sh
+nvm use            # Node 22 (see .nvmrc); fnm/volta also read .nvmrc
+npm ci
+npm start          # dev server on http://localhost:4200
+```
 
-🔎 **Smart, Extensible Build Framework**
+## Checks
 
-## Adding capabilities to your workspace
+```sh
+npm run lint
+npm run typecheck
+npm test
+npm run build      # output: dist/apps/chris-personal-website
+npm run e2e        # builds, serves the production bundle on :4300, runs Playwright
+```
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+First Playwright run on a machine: `npx playwright install chromium`.
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+Run the e2e suite against a deployed URL instead of a local build:
 
-Below are our core plugins:
+```sh
+BASE_URL=https://chrismay-41dcd.web.app npm run e2e
+```
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+## Deployment
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+GitHub Actions handles deploys. Both workflows run lint, typecheck, unit tests, build and e2e first.
 
-## Generate an application
+- `firebase-hosting-pull-request.yml`: every PR gets a Firebase preview channel; the URL is posted on the PR.
+- `firebase-hosting-merge.yml`: pushes to `master` deploy to the live channel.
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+Auth is the `FIREBASE_SERVICE_ACCOUNT_CHRISMAY_41DCD` repository secret. `firebase.json` serves `dist/apps/chris-personal-website` as an SPA.
 
-> You can use any of the plugins above to generate applications as well.
+## Layout
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@chris-personal-website/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+```
+apps/chris-personal-website/      the site (Vite app)
+  public/                         favicons, manifest, images, resume PDF
+  src/app/components/             page sections
+  src/app/common/                 shared styled primitives, icons, colors
+apps/chris-personal-website-e2e/  Playwright tests
+```

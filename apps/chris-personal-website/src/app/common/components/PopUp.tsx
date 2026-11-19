@@ -137,7 +137,5 @@ export const PopUp = (props: PopUpProps) => {
         </EnterSiteButton>
       </PopUpWindow>
     </PopUpWrapper>
-  ) : (
-    <></>
-  );
+  ) : null;
 };

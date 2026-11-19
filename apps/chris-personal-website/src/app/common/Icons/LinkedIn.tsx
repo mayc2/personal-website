@@ -3,7 +3,6 @@ import { Linkedin } from 'grommet-icons';
 import { WithTitle } from '../components/WithTitle';
 import {
   PRIMARY_FONT_COLOR,
-  PRIMARY_LINKEDIN_COLOR,
   SECONDARY_LINKEDIN_COLOR,
 } from '../constants/colors';
 
