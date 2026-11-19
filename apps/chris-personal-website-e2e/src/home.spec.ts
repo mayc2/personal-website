@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 const SECTIONS = [
   'A little about myself...',
   'Personal Projects',
-  'Professional Portfolio',
+  'Experience',
   'Skills',
   'Wanna Say Hey?',
 ];
@@ -26,7 +26,7 @@ test.describe('home page', () => {
       page.getByRole('heading', { name: 'Chris May' })
     ).toBeVisible();
     for (const name of SECTIONS) {
-      await expect(page.getByRole('heading', { name })).toBeAttached();
+      await expect(page.getByRole('heading', { name, exact: true })).toBeAttached();
     }
     await expect(
       page.locator('a[href="https://github.com/mayc2"]').first()
@@ -61,9 +61,7 @@ test.describe('desktop navigation', () => {
   test('navigates to the resume page and back', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: 'Enter Site!' }).click();
-    await page
-      .getByRole('navigation')
-      .getByRole('link', { name: 'Resume' })
+    await page.getByRole('banner').getByRole('link', { name: 'Resume' })
       .click();
     await expect(page).toHaveURL(/\/resume$/);
     await expect(page.getByText("Chris May's Resume")).toBeVisible();
@@ -81,11 +79,11 @@ test.describe('mobile menu', () => {
   test('opens from the hamburger and closes', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: 'Enter Site!' }).click();
-    await page.locator('svg[aria-label="Menu"]').first().click();
-    const closeIcon = page.locator('svg[aria-label="close"]');
-    await expect(closeIcon).toBeVisible();
-    await expect(page.getByText('Home', { exact: true })).toBeVisible();
-    await closeIcon.click();
-    await expect(page.getByText('Home', { exact: true })).toBeHidden();
+    await page.getByRole('button', { name: 'Open menu' }).click();
+    const dialog = page.getByRole('dialog');
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByRole('link', { name: 'Resume' })).toBeVisible();
+    await dialog.getByRole('button', { name: 'Close' }).click();
+    await expect(dialog).toBeHidden();
   });
 });

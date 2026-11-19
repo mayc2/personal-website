@@ -6,7 +6,14 @@
     "projectType": "application",
     "tags": [],
     "targets": {
-      "preview": { "dependsOn": ["build"] }
+      "preview": {
+        "dependsOn": [
+          "build"
+        ]
+      }
     }
+  },
+  "dependencies": {
+    "@chrismay/ui": "*"
   }
 }

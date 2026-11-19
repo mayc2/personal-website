@@ -2,5 +2,15 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": [{ "path": "./apps/chris-personal-website" }, { "path": "./apps/chris-personal-website-e2e" }]
+  "references": [
+    {
+      "path": "./apps/chris-personal-website"
+    },
+    {
+      "path": "./apps/chris-personal-website-e2e"
+    },
+    {
+      "path": "./libs/ui"
+    }
+  ]
 }

@@ -39,7 +39,7 @@ const ContactFlexWrapper = styled.div`
 
 export const Contact = () => {
   return (
-    <Section className="contact" >
+    <Section id="contact" className="contact">
       <ContactContainer>
         <Heading primary={true}>Wanna Say Hey?</Heading>
         <SubHeading>I’d love to hear from you!</SubHeading>

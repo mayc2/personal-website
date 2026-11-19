@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { LinkPrevious } from 'grommet-icons';
 import { Link } from 'react-router-dom';
 
-import { AppBar } from '../common/components/AppBar';
 import { HomeIcon } from '../common/components/HomeIcon';
 import {
   EMPHASIS_FONT_COLOR,
@@ -76,7 +75,7 @@ const ObjectWrapper = styled.div`
 export const Resume = () => {
   return (
     <>
-      <AppBar>
+      <header className='sticky top-0 z-40 flex h-16 items-center justify-between border-b border-border/70 bg-background/80 px-4 backdrop-blur sm:px-6'>
         <HomeIcon />
         <ResumeHeader>Chris May's Resume</ResumeHeader>
         <ReturnToHomeWrapper to="/">
@@ -88,7 +87,7 @@ export const Resume = () => {
           />
           <ReturnToHome>Return To Home</ReturnToHome>
         </ReturnToHomeWrapper>
-      </AppBar>
+      </header>
       <Hero>
         <TroubleViewingPrompt>
           Having trouble viewing?{' '}

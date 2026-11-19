@@ -10,8 +10,8 @@ type SectionProps = {
 export const Section = styled.div`
     display: flex;
     box-sizing: border-box;
-    overflow: hidden;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 4rem 1rem;
     max-width: 1920px;
     width: 100%;
     min-width: 0;

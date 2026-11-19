@@ -20,7 +20,7 @@ describe('App', () => {
     for (const section of [
       'A little about myself...',
       'Personal Projects',
-      'Professional Portfolio',
+      'Experience',
       'Skills',
       'Wanna Say Hey?',
     ]) {
