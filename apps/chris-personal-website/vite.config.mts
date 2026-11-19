@@ -1,6 +1,7 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import { nxReadySignal } from '@nx/vite/plugins/nx-ready-signal.plugin';
 
 export default defineConfig(() => ({
@@ -8,7 +9,7 @@ export default defineConfig(() => ({
   cacheDir: '../../node_modules/.vite/apps/chris-personal-website',
   server: { port: 4200, host: 'localhost' },
   preview: { port: 4300, host: 'localhost' },
-  plugins: [react(), nxReadySignal()],
+  plugins: [react(), tailwindcss(), nxReadySignal()],
   build: {
     outDir: '../../dist/apps/chris-personal-website',
     emptyOutDir: true,

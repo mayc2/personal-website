@@ -1,0 +1,18 @@
+{
+  "name": "@chrismay/ui",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./theme.css": "./src/theme.css",
+    "./components/*": "./src/components/*.tsx",
+    "./lib/*": "./src/lib/*.ts"
+  },
+  "nx": {
+    "projectType": "library",
+    "tags": [
+      "scope:ui"
+    ]
+  }
+}

@@ -61,7 +61,7 @@ const SkillGroup = styled.div`
 const SkillTitle = styled.h3`
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
-  color: ${EMPHASIS_FONT_COLOR};
+  color: var(--accent-foreground);
 `;
 
 const SkillItems = styled.p`
@@ -72,7 +72,7 @@ const SkillItems = styled.p`
 
 export const Skills = () => {
   return (
-    <section className='skills'>
+    <section id='skills' className='skills'>
       <Section primary direction='column'>
         <Heading primary={true}>Skills</Heading>
         <SkillsGrid>

@@ -18,6 +18,9 @@ const ContentSection = styled.div`
 
 const TextSection = styled.p`
   font-size: 25px;
+  max-width: 52rem;
+  margin: 0 auto 1rem;
+  line-height: 1.5;
 
   @media screen and (max-width: 768px) {
     font-size: 20px;
@@ -26,7 +29,7 @@ const TextSection = styled.p`
 
 export const About = () => {
   return (
-    <Section className='about' direction='row'>
+    <Section id='about' className='about' direction='row'>
       <AboutWrapper>
         <Heading primary={true}>A little about myself...</Heading>
         <ContentSection>

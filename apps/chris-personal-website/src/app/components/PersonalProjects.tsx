@@ -47,7 +47,7 @@ const CarouselCard = styled.div`
 
 export const PersonalProjects = () => {
   return (
-    <Section className='personal' direction='column'>
+    <Section id='personal' className='personal' direction='column'>
       <Heading primary={true} margin='0'>
         Personal Projects
       </Heading>
