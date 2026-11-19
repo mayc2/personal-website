@@ -1,3 +1,20 @@
+export const HEADLINE = {
+  kicker: 'Agent systems · Platforms',
+  line1: 'Hi, I’m Chris.',
+  line2: 'I build AI that people can trust.',
+  intro:
+    'Applied AI engineer and Technical Lead at Verantos. Ten years in enterprise software, now building reliable agent systems for clinical research.',
+  location: 'San Francisco Bay Area',
+};
+
+export const AWARD = {
+  year: '2026',
+  title: 'Fierce AI Innovation Award',
+  detail:
+    'The Verantos Evidence Platform won in the Real-World Evidence & Data Analytics category.',
+  href: 'https://www.fiercebiotech.com/',
+};
+
 export const LINKS = {
   email: 'mailto:r16cmay@gmail.com',
   github: 'https://github.com/mayc2',
@@ -114,6 +131,7 @@ export type Project = {
   href?: string;
   detail: string;
   meta?: string;
+  tags: string[];
 };
 
 export const PROJECTS: Project[] = [
@@ -122,24 +140,28 @@ export const PROJECTS: Project[] = [
     detail:
       'React + Vite on Cloudflare with a Sanity studio for content; guestbook, schedule, travel and FAQ.',
     meta: '2025 – 2026 · private',
+    tags: ['React', 'Vite', 'Sanity', 'Cloudflare'],
   },
   {
     name: 'This site',
     href: 'https://github.com/mayc2/personal-website',
     detail: 'Nx, Vite, React 19 and a small shadcn-based component library.',
     meta: '2021 – 2026',
+    tags: ['TypeScript', 'Nx', 'React 19'],
   },
   {
     name: 'Spotify clone',
     href: 'https://github.com/mayc2/spot-clone',
     detail: 'Web player UI against the Spotify API.',
     meta: '2026',
+    tags: ['React', 'JavaScript'],
   },
   {
     name: 'YouTube clone',
     href: 'https://github.com/mayc2/youtube-clone-react',
     detail: 'React front end over the YouTube Data API.',
     meta: '2024',
+    tags: ['React', 'JavaScript'],
   },
   {
     name: 'RNA pseudoknot prediction',
@@ -147,11 +169,13 @@ export const PROJECTS: Project[] = [
     detail:
       'SFold and Metropolis-Hastings sampling; undergraduate research at RPI.',
     meta: '2016',
+    tags: ['Python', 'Research'],
   },
   {
     name: 'Memory management simulator',
     href: 'https://github.com/mayc2/MemoryManagementSimu',
     detail: 'Paging and allocation strategies, visualized.',
     meta: '2015',
+    tags: ['Python'],
   },
 ];
