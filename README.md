@@ -1,8 +1,8 @@
-# chrismay.dev — personal website
+# chrismay.me — personal website
 
 Single-page React portfolio, deployed to Firebase Hosting (project `chrismay-41dcd`).
 
-- Live: https://chrismay-41dcd.web.app
+- Live: https://www.chrismay.me (Firebase Hosting custom domain; https://chrismay-41dcd.web.app is the same site)
 - Stack: Nx 24, Vite 8, React 19, TypeScript, Emotion, Grommet icons, react-router 7
 - Tests: Vitest + Testing Library (unit), Playwright (e2e, desktop + mobile Chrome)
 
