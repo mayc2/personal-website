@@ -1,4 +1,4 @@
-import { Link as LinkScroll, animateScroll } from 'react-scroll';
+import { Link as LinkScroll } from 'react-scroll';
 import { Link as LinkRoute } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Menu } from 'grommet-icons';

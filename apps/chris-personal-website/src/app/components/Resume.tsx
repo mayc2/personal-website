@@ -103,13 +103,13 @@ export const Resume = () => {
 
         <ObjectWrapper>
           <object
-            data="../../assets/chris_may_2021_resume.pdf"
+            data="/assets/chris_may_2021_resume.pdf"
             type="application/pdf"
             width="100%"
             height="100%"
           >
             <embed
-              src="../../assets/chris_may_2021_resume.pdf"
+              src="/assets/chris_may_2021_resume.pdf"
               type="application/pdf"
             />
           </object>

@@ -1,10 +1,11 @@
 {
   "extends": "../../tsconfig.base.json",
-  "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.e2e.json"
-    }
-  ]
+  "compilerOptions": {
+    "allowJs": true,
+    "outDir": "out-tsc/playwright",
+    "sourceMap": false,
+    "types": ["node"]
+  },
+  "include": ["**/*.ts", "playwright.config.ts", "src/**/*.spec.ts"],
+  "exclude": ["out-tsc", "test-output", "eslint.config.mjs"]
 }

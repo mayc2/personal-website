@@ -6,7 +6,6 @@ import { FormClose } from 'grommet-icons';
 import {
   PRIMARY_BACKGROUND_COLOR,
   PRIMARY_FONT_COLOR,
-  SECONDARY_BACKGROUND_COLOR,
   PRIMARY_SELECTION_COLOR,
   EMPHASIS_FONT_COLOR,
   SECONDARY_FONT_COLOR,
@@ -17,14 +16,6 @@ import {
 type SidebarWrapperProps = {
   isOpen: boolean;
 };
-
-const Hoverable = css`
-  &:hover {
-    color: ${PRIMARY_FONT_COLOR};
-    background: ${SECONDARY_BACKGROUND_COLOR};
-    transition: all 0.2s ease-in-out;
-  }
-`;
 
 const SidebarWrapper = styled.div`
   position: fixed;
@@ -38,6 +29,9 @@ const SidebarWrapper = styled.div`
   transition: 0.3s ease-in-out;
   opacity: ${(props: SidebarWrapperProps) => (props.isOpen ? '100%' : '0')};
   top: ${(props: SidebarWrapperProps) => (props.isOpen ? '0' : '-100%')};
+  /* Keep the hidden menu (and its fixed-position close icon) from intercepting taps. */
+  visibility: ${(props: SidebarWrapperProps) => (props.isOpen ? 'visible' : 'hidden')};
+  pointer-events: ${(props: SidebarWrapperProps) => (props.isOpen ? 'auto' : 'none')};
 `;
 
 const CloseIcon = styled(FormClose)`

@@ -1,4 +1,3 @@
-import { GridContainer } from '../common/styles/GridContainer';
 import { Heading } from '../common/styles/Heading';
 import { Section } from '../common/styles/Section';
 // import { Card } from '../common/components/Card';
